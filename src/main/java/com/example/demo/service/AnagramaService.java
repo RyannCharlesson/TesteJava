@@ -13,8 +13,8 @@ public class AnagramaService {
             return false;
         }
 
-        var arrPalavra1 = palavra1.toCharArray();
-        var quantidadeFrequencia = new HashMap<Character, Integer>();
+        char[] arrPalavra1 = palavra1.toUpperCase().toCharArray();
+        HashMap<Character, Integer> quantidadeFrequencia = new HashMap<>();
 
         if(palavra2.length() != palavra1.length()){
             return false;
@@ -24,7 +24,7 @@ public class AnagramaService {
             quantidadeFrequencia.put(c, quantidadeFrequencia.getOrDefault(c, 0)+1);
         }
 
-        for(char c: palavra2.toCharArray()){
+        for(char c: palavra2.toUpperCase().toCharArray()){
             if(!quantidadeFrequencia.containsKey(c)) {
                 return false;
             }
