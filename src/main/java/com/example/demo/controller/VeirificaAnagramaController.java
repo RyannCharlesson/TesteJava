@@ -20,10 +20,17 @@ public class VeirificaAnagramaController {
 	@Autowired
 	private AnagramaService anagramaService;
 	
-	//
+	/**
+	 * escrever no navegador: localhost:8081/anagrama/verificaAnagrama/{palavra1}/{palavra2}
+	 * @param palavra1 recebe a primeira palavra para comparação com a segunda
+	 * @param palavra2 recebe a segunda palavra para comparação com a primeira
+	 * @return
+	 */
     @GetMapping("/verificaAnagrama/{palavra1}/{palavra2}")
     public ResponseEntity<Boolean> verificaAnagrama(@PathVariable("palavra1") String palavra1, @PathVariable("palavra2") String palavra2){
-
+/**
+ * vai retornar 'true' se as palavras forem anagramas, caso contrário, retorna 'false'
+ */
        var retorno = anagramaService.verificaAnagrama(palavra1, palavra2);
 
         return ResponseEntity.ok(retorno);
